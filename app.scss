@@ -1,0 +1,382 @@
+@mixin center($x, $y) {display: flex;@if $x {justify-content: center;}@if $y {align-items: center;}}
+//=======================================================
+* {
+  font-family: 'El Messiri', sans-serif;
+  color: #fff;
+}
+::-webkit-scrollbar {width: 15px;}
+::-webkit-scrollbar-track {background-color: #133233;}
+::-webkit-scrollbar-thumb {
+  background-color: #388B8E;
+  border: 4px solid transparent;
+  border-radius: 9px;
+  background-clip: content-box;
+}
+//==============================================================
+//============================ Menu ============================
+//==============================================================
+.menu {
+  position: absolute;
+  z-index: 100;
+  background-color: #1f4f51;
+  list-style-type: none;
+  width: 13%;
+  transform: scalex(0);
+  padding: 3px;
+  direction: rtl;
+  & li {
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    padding: 10px;
+    &:hover {
+      background-color: #30777a;
+    }
+  }
+}
+.popUp {
+  transform: scaleX(1);
+}
+//==============================================================
+//============================ Body ============================
+//==============================================================
+body {
+  background-color: #3B9A9C;
+  overflow: hidden;
+  margin : 0px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: 0.5fr repeat(24, 1fr) 0.5fr;
+  grid-template-rows: repeat(12, 1fr);
+}
+//==============================================================
+//======================= OverLay ==============================
+//==============================================================
+#overlay {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  width: 100%;
+  height: 0%;
+  visibility: hidden;
+  opacity: 0.50;
+  z-index: -20;
+  background: transparent;
+}
+//==============================================================
+//=========================== Clock ============================
+//==============================================================
+#Con_clock {
+  @include center(true, false);
+  grid-column: 23/27;
+  position: relative;
+  background-color: #266163;
+  grid-row: 1;
+  font-size: 36px;
+  & > div {
+    position: absolute;
+    z-index: 22;
+  }
+}
+//==============================================================
+//======================= List of Student Names ================
+//==============================================================
+#list_student {
+  padding-right: 10px;
+  width: 45%;
+  padding-left: 0px;
+  height: 72%;
+  margin-bottom: 0px;
+}
+.student-field {
+  margin-bottom: 10px;
+  list-style-type: none;
+  background-color: #266163;
+  padding: 10px 10px 10px 20px;
+  position: relative;
+  height: 40px;
+  display: flex;
+  direction: rtl;
+  align-items: center;
+  &:last-child {
+    margin: 0px;
+  }
+  &::after {
+    content: attr(data-num);
+    position: absolute;
+    left: 15px;
+  }
+}
+//==============================================================
+//======================= Toggle Lock ==========================
+//==============================================================
+#togglelock {
+  @include center(true, true);
+  position: relative;
+  background: transparent;
+  outline: none;
+  grid-column: 1/3;
+  border: none;
+  height: 100%;
+  & > span {
+    @include center(true, true);
+    font-size: 40px;
+    position: absolute;
+    z-index: 100;
+    transition: all 1s ease-in;
+    background: #266163;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    cursor: pointer;
+  }
+}
+//==============================================================
+//======================= Form Add Student =====================
+//==============================================================
+#form_add_student {
+  grid-column: 8/18;
+  width: 100%;
+  grid-row: 4;
+  transition: all 0.5s ease-in-out;
+  transform: scale(0);
+  grid-gap: 30px;
+  padding: 20px;
+  direction: rtl;
+  background-color: #4BC2C5;
+  position: absolute;
+  z-index: 33;
+  display: grid;
+  border-radius: 20px;
+  grid-template-columns: repeat(12, 1fr);
+  & input {
+    color: #167678;
+    outline: none;
+    box-sizing: border-box;
+    border-radius: 30px;
+    font-size: 20px;
+    text-indent: 10px;
+    direction: rtl;
+    padding: 7px;
+    border: none;
+    &:nth-child(2) {
+      grid-column: 1/7;
+    }
+    &:nth-child(3) {
+      margin-right: 30px;
+      grid-column: 7/13;
+    }
+  }
+}
+#titleofForm {
+  grid-column: 5/12;
+  font-size: 40px;
+  margin-right: -8px;
+  margin-bottom: -7px;
+}
+
+#Con_inp_code {
+  grid-row: 3;
+  position: relative;
+  margin-top: 10px;
+  grid-column: 1/13;
+  & > input {
+    width: 90%;
+    border-radius: 0px 30px 30px 0px;
+  }
+  & > i {
+    height: 100%;
+    width: 10%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #358D8F;
+    position: absolute;
+    font-size: 28px;
+    cursor: pointer;
+    border-radius: 30px 0px 0px 30px;
+  }
+}
+#notyfictions {
+  grid-column: 1/13;
+  width: 100%;
+  text-align: center;
+  display: none;
+  font-size: 20px;
+}
+//==============================================================
+//======================= Add Student ==========================
+//==============================================================
+#add_student {
+  outline: none;
+  background: transparent;
+  box-shadow: none;
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  border: none;
+  box-sizing: border-box;
+  width: 100%;
+  grid-column: 3/8;
+  font-size: 35px;
+  cursor: pointer;
+  &:hover {
+    background-color: #359194;
+  }
+}
+//==============================================================
+//======================= Classes ==============================
+//==============================================================
+.error {
+  animation: kf_shake 0.4s 1 linear;
+  background-color: #C54B4B !important;
+}
+.hello {
+  background-color: #4BC574 !important;
+}
+@keyframes kf_shake {
+  0% { -webkit-transform: translate(30px); }
+  20% { -webkit-transform: translate(-30px); }
+  40% { -webkit-transform: translate(15px); }
+  60% { -webkit-transform: translate(-15px); }
+  80% { -webkit-transform: translate(8px); }
+  100% { -webkit-transform: translate(0px); }
+}
+//===============
+.pop {
+  transform: scale(1) !important;
+}
+//===============
+.hide {
+  height: 103% !important;
+  visibility: visible !important;
+  display: block !important;
+  background: black !important;
+  z-index: 20 !important;
+}
+//==============================================================
+//=================== Form Student Attendance ==================
+//==============================================================
+#form_attendance {
+ box-sizing: border-box;
+ grid-gap: 10px;
+ @extend #form_add_student
+}
+#titleofForm2 {
+ font-size: 50px;
+ @extend #titleofForm
+}
+#Con_inp_code2 {
+  @extend #Con_inp_code
+}
+#notyfictions2 {
+  grid-row: 4;
+  @extend #notyfictions
+}
+//==============================================================
+//===================== Number Attendees =======================
+//==============================================================
+#Number_attendees {
+  grid-column: 23/20
+}
+#Number_total {
+  grid-column: 18/21
+}
+#Number_absentees {
+  grid-column: 16/19
+}
+#Number_absentees, #Number_attendees, #Number_total {
+  @include center(true, true);
+  font-size: 26px;
+  cursor: pointer;
+  position: relative;
+  &::before {
+    content: attr(data-number);
+    @include center(true, true);
+    background-color: #266163;
+    transition: all 0.2s ease-in-out;
+    transform: scaley(0);
+    position: absolute;
+    bottom: 100%;
+    width: 58%;
+    height: 150%;
+  }
+  &::after {
+    content: "";
+    border-color: #266163 transparent transparent transparent;
+    position: absolute;
+    border-width: 15px;
+    bottom: 50%;
+    transform-origin: top;
+    border-style: solid;
+    transform: scaley(0);
+    transition: all 0.4s ease-in-out;
+  }
+  &:hover {
+    &::after {
+      transform: scaley(1)
+    }
+    &::before {
+      transform: scaley(1)
+    }
+  }
+}
+#taskbar {
+  grid-row: 12/13;
+  grid-column: 1/27;
+  background-color: #2C7678;
+  display: grid;
+  grid-template-columns: 0.5fr repeat(24, 1fr) 0.5fr;
+  & * {
+    grid-row: 1;
+  }
+}
+//=======================================================================
+//=====================    Check_column    ==============================
+//=======================================================================
+#Check_column {
+  grid-column: 23/27;
+  grid-row: 1/12;
+  grid-template-rows: repeat(11, 1fr);
+  background-color: #1D4748;
+  display: grid;
+  grid-row-gap: 7px;
+  & * {
+    grid-column: 1/2;
+    background-color: #255557;
+    grid-row: 2/4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: all 0.1s ease-in-out;
+    font-size: 19px;
+    cursor: pointer;
+    &:hover {
+      background-color: #388385
+    }
+  }
+  & .selected {
+    background-color: #388385 !important;
+    &:before {
+      content: "";
+      border-color: #26616300 transparent #26616300 #3b9a9c;
+      position: absolute;
+      border-width: 15px;
+      transform-origin: top;
+      border-style: solid;
+      left: 0px;
+      transition: all 0.4s ease-in-out;
+    }
+  }
+  & #Absentees {
+    grid-row: 4/6;
+  }
+}
+#viewWindow {
+  grid-column: 2/23;
+  grid-row: 1/12;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+}
