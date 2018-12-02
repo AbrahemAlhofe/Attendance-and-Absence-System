@@ -21,7 +21,7 @@
 .menu {
   position: absolute;
   z-index: 100;
-  background-color: #1f4f51;
+  background-color: #1C4245;
   list-style-type: none;
   width: 13%;
   transform: scalex(0);
@@ -36,7 +36,7 @@
 }
 
 .menu li:hover {
-  background-color: #30777a;
+  background-color: #3C9799;
 }
 
 .popUp {
@@ -71,7 +71,7 @@ body {
   justify-content: center;
   grid-column: 23/27;
   position: relative;
-  background-color: #266163;
+  background-color: #173B39;
   grid-row: 1;
   font-size: 36px;
 }
@@ -92,7 +92,7 @@ body {
 .student-field {
   margin-bottom: 10px;
   list-style-type: none;
-  background-color: #266163;
+  background-color: #276362;
   padding: 10px 10px 10px 20px;
   position: relative;
   height: 40px;
@@ -131,7 +131,7 @@ body {
   position: absolute;
   z-index: 100;
   transition: all 1s ease-in;
-  background: #266163;
+  background: #1C4245;
   height: 100%;
   width: 100%;
   outline: none;
@@ -147,7 +147,7 @@ body {
   grid-gap: 30px;
   padding: 20px;
   direction: rtl;
-  background-color: #4BC2C5;
+  background-color: #47B9BC;
   position: absolute;
   z-index: 33;
   display: grid;
@@ -156,7 +156,7 @@ body {
 }
 
 #form_add_student input, #form_attendance input {
-  color: #167678;
+  color: #176063;
   outline: none;
   box-sizing: border-box;
   border-radius: 30px;
@@ -198,10 +198,11 @@ body {
 #Con_inp_code > i, #Con_inp_code2 > i {
   height: 100%;
   width: 10%;
-  display: inline-flex;
+  display: flex;
   justify-content: center;
+  display: inline-flex;
   align-items: center;
-  background-color: #358D8F;
+  background-color: #3C9799;
   position: absolute;
   font-size: 28px;
   cursor: pointer;
@@ -232,7 +233,7 @@ body {
 }
 
 #add_student:hover {
-  background-color: #359194;
+  background-color: #47B9BC;
 }
 
 .error {
@@ -290,65 +291,10 @@ body {
   grid-row: 4;
 }
 
-#Number_attendees {
-  grid-column: 23/20;
-}
-
-#Number_total {
-  grid-column: 18/21;
-}
-
-#Number_absentees {
-  grid-column: 16/19;
-}
-
-#Number_absentees, #Number_attendees, #Number_total {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  cursor: pointer;
-  position: relative;
-}
-
-#Number_absentees::before, #Number_attendees::before, #Number_total::before {
-  content: attr(data-number);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #266163;
-  transition: all 0.2s ease-in-out;
-  transform: scaley(0);
-  position: absolute;
-  bottom: 100%;
-  width: 58%;
-  height: 150%;
-}
-
-#Number_absentees::after, #Number_attendees::after, #Number_total::after {
-  content: "";
-  border-color: #266163 transparent transparent transparent;
-  position: absolute;
-  border-width: 15px;
-  bottom: 50%;
-  transform-origin: top;
-  border-style: solid;
-  transform: scaley(0);
-  transition: all 0.4s ease-in-out;
-}
-
-#Number_absentees:hover::after, #Number_attendees:hover::after, #Number_total:hover::after {
-  transform: scaley(1);
-}
-
-#Number_absentees:hover::before, #Number_attendees:hover::before, #Number_total:hover::before {
-  transform: scaley(1);
-}
-
 #taskbar {
   grid-row: 12/13;
   grid-column: 1/27;
-  background-color: #2C7678;
+  background-color: #276362;
   display: grid;
   grid-template-columns: 0.5fr repeat(24, 1fr) 0.5fr;
 }
@@ -358,20 +304,21 @@ body {
 }
 
 #Check_column {
-  grid-column: 23/27;
+  grid-column: 22/27;
   grid-row: 1/12;
-  grid-template-rows: repeat(11, 1fr);
-  background-color: #1D4748;
+  grid-template-rows: repeat(16, 1fr);
+  background-color: #1C4245;
   display: grid;
   grid-row-gap: 7px;
 }
 
-#Check_column * {
+#Check_column .tap {
   grid-column: 1/2;
-  background-color: #255557;
+  background-color: #276063;
   grid-row: 2/4;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-right: 10px;
   align-items: center;
   position: relative;
   transition: all 0.1s ease-in-out;
@@ -379,17 +326,24 @@ body {
   cursor: pointer;
 }
 
-#Check_column *:hover {
-  background-color: #388385;
+#Check_column .tap:hover {
+  background-color: #3C9799;
+}
+
+#Check_column .tap::after {
+  content: attr(data-number);
+  position: absolute;
+  z-index: 10;
+  left: 28px;
 }
 
 #Check_column .selected {
-  background-color: #388385 !important;
+  background-color: #47B9BC !important;
 }
 
 #Check_column .selected:before {
   content: "";
-  border-color: #26616300 transparent #26616300 #3b9a9c;
+  border-color: #26616300 transparent #26616300 #3B9A9C;
   position: absolute;
   border-width: 15px;
   transform-origin: top;
@@ -402,10 +356,76 @@ body {
   grid-row: 4/6;
 }
 
+#chosseClass, #chosseGrade {
+  background-color: #1C4245;
+}
+
+#chosseClass > span, #chosseGrade > span {
+  background-color: #112B2B !important;
+  padding: 10px;
+}
+
+#chosseClass > span > #className, #chosseClass > span #gradeName, #chosseGrade > span > #className, #chosseGrade > span #gradeName {
+  position: absolute;
+  background-color: #173B39;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  width: 50%;
+  height: 100%;
+}
+
+#chosseClass > span > #gradeName, #chosseGrade > span > #gradeName {
+  left: 0px;
+  width: 74%;
+}
+
+#chosseClass > #Window_Display_Options, #chosseClass #Window_Display_Options2, #chosseGrade > #Window_Display_Options, #chosseGrade #Window_Display_Options2 {
+  list-style-type: none;
+  padding: 0px;
+  padding-top: 10px;
+  grid-row: 2/8;
+  margin: 0px;
+}
+
+#chosseClass > #Window_Display_Options .classSelect, #chosseClass > #Window_Display_Options .gradeSelect, #chosseClass #Window_Display_Options2 .classSelect, #chosseClass #Window_Display_Options2 .gradeSelect, #chosseGrade > #Window_Display_Options .classSelect, #chosseGrade > #Window_Display_Options .gradeSelect, #chosseGrade #Window_Display_Options2 .classSelect, #chosseGrade #Window_Display_Options2 .gradeSelect {
+  outline: 1px solid #47B9BC;
+}
+
+#chosseClass > #Window_Display_Options li, #chosseClass #Window_Display_Options2 li, #chosseGrade > #Window_Display_Options li, #chosseGrade #Window_Display_Options2 li {
+  text-align: center;
+  background-color: #163636;
+  width: 80%;
+  margin-top: 1px !important;
+  margin: 0px;
+  margin-bottom: 10px;
+  height: fit-content;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+}
+
+#chosseClass > #Window_Display_Options li:hover, #chosseClass #Window_Display_Options2 li:hover, #chosseGrade > #Window_Display_Options li:hover, #chosseGrade #Window_Display_Options2 li:hover {
+  background-color: #3B9A9C;
+}
+
+#chosseClass > #Window_Display_Options li:active, #chosseClass #Window_Display_Options2 li:active, #chosseGrade > #Window_Display_Options li:active, #chosseGrade #Window_Display_Options2 li:active {
+  background-color: #173B39;
+}
+
 #viewWindow {
-  grid-column: 2/23;
+  grid-column: 2/22;
   grid-row: 1/12;
   display: flex;
   justify-content: center;
   overflow-x: hidden;
+}
+
+#sliderChosse {
+  grid-row: 7/17;
+  background-color: #1C4245;
+  display: grid;
+  grid-row-gap: 7px;
 }

@@ -1,3 +1,19 @@
+var DataBase___ = {
+  "الاعدادي" : {
+    "2/2" : {
+      student : {
+        "777" : ["عبدالله", "شريف"]
+      },
+      absentees : {}
+    },
+    "2/1" : {
+      student : {
+        "999" : ["محمد", "السيد"]
+      },
+      absentees : {}
+    }
+  }
+}
 function StudentModel() {
   this.Undo = {}
   this.absentees = {};
@@ -9,7 +25,7 @@ function StudentModel() {
     this.observer.push(f)
   }
   this.addStudent = function (code, name) {
-    this.student[code.toString()]
+    this.student[code.toString()] = name
     this.notify()
   }
   this.getFristName = function (code) {

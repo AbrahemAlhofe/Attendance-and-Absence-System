@@ -57,11 +57,13 @@ function Number(student, absentees) {
   var studentNumber = Object.keys(student).length.toString(),
       absenteesNumber = (Object.keys(student).length == Object.keys(absentees).length) ? "0" : Object.keys(absentees).length.toString();
   ///////////////////////////////////////////
-  $("#Number_total").setAttr("data-number", studentNumber)
-  $("#Number_absentees").setAttr("data-number", absenteesNumber)
-  var attendeesNumber = parseInt($("#Number_total").getAttr("data-number")) - parseInt($("#Number_absentees").getAttr("data-number"));
-  $("#Number_attendees").setAttr("data-number", attendeesNumber.toString())
+  $("#Student").setAttr("data-number", studentNumber)
+  $("#Absentees").setAttr("data-number", absenteesNumber)
+  var attendeesNumber = parseInt($("#Student").getAttr("data-number")) - parseInt($("#Absentees").getAttr("data-number"));
+  $("#chosseClass > span").setAttr("data-number", attendeesNumber.toString())
 }
+function classes () {$("#className").innerHTML = $(".classSelect").innerHTML;$("#gradeName").innerHTML = $(".gradeSelect").innerHTML}
 Model.addObserver(Number)
 Model.addObserver(viewWindow)
+Model.addObserver(classes)
 Model.notify()

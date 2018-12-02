@@ -14,8 +14,23 @@ html
       ///////////////////////////////////////////////////////////
       #overlay
       #Check_column
-        #Student.selected(data-group="student") لائحه الطلبه
-        #Absentees(data-group="absentees") الغائبين
+        #Student.selected.tap(data-group="student") لائحه الطلبه
+        #Absentees.tap(data-group="absentees") الغائبين
+        #sliderChosse
+          #chosseGrade
+            span.tap الصف
+              span#gradeName الابتدائي
+            ul#Window_Display_Options2
+              li.gradeSelect الابتدائي
+              li الاعدادي
+              li الثانوي
+          #chosseClass
+            span.tap فصل
+              span#className.center 2/2
+            ul#Window_Display_Options
+              li.classSelect 2/2
+              li 2/3
+              li 2/4
       #viewWindow
         ul#list_student
       ///////////////////////////////////////////////////////////
@@ -36,9 +51,6 @@ html
         div#notyfictions2
       ///////////////////////////////////////////////////////////
       #taskbar
-        #Number_attendees() الحاضرين
-        #Number_total() المجموع
-        #Number_absentees(data-number="5") الغائبين
         //-----------------------------------
         #Con_clock
           #clock
@@ -46,11 +58,10 @@ html
         button#togglelock
           span(class="fas fa-unlock")
         button#add_student أضف طالب
-  script(src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js")
-  script(type="text/javascript", src="FireBase_l.js")
   script(type="text/javascript", src="E:/html/LPM/helpingFunc.js")
   script(type="text/javascript", src="DataBase.js")
   script(type="text/javascript", src="E:/html/LPM/JPLUS.js")
+  script(type="text/javascript", src="E:/html/LPM/Slider.pj.js")
   script(src="Style.js")
   script(type="text/javascript", src="Forms.js")
   script(type="text/javascript", src="view.js")

@@ -15,8 +15,24 @@
     <!--/////////////////////////////////////////////////////////-->
     <div id="overlay"></div>
     <div id="Check_column">
-      <div id="Student" data-group="student" class="selected">لائحه الطلبه</div>
-      <div id="Absentees" data-group="absentees">الغائبين</div>
+      <div id="Student" data-group="student" class="selected tap">لائحه الطلبه</div>
+      <div id="Absentees" data-group="absentees" class="tap">الغائبين</div>
+      <div id="sliderChosse">
+        <div id="chosseGrade"><span class="tap">الصف<span id="gradeName">الابتدائي</span></span>
+          <ul id="Window_Display_Options2">
+            <li class="gradeSelect">الابتدائي</li>
+            <li>الاعدادي</li>
+            <li>الثانوي</li>
+          </ul>
+        </div>
+        <div id="chosseClass"><span class="tap">فصل<span id="className" class="center">2/2</span></span>
+          <ul id="Window_Display_Options">
+            <li class="classSelect">2/2</li>
+            <li>2/3</li>
+            <li>2/4</li>
+          </ul>
+        </div>
+      </div>
     </div>
     <div id="viewWindow">
       <ul id="list_student"></ul>
@@ -41,9 +57,6 @@
     </form>
     <!--/////////////////////////////////////////////////////////-->
     <div id="taskbar">
-      <div id="Number_attendees">الحاضرين</div>
-      <div id="Number_total">المجموع</div>
-      <div id="Number_absentees" data-number="5">الغائبين</div>
       <div id="Con_clock">
         <div id="clock"></div>
       </div>
@@ -51,11 +64,10 @@
       <button id="add_student">أضف طالب</button>
     </div>
   </body>
-  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
-  <script type="text/javascript" src="FireBase_l.js"></script>
   <script type="text/javascript" src="E:/html/LPM/helpingFunc.js"></script>
   <script type="text/javascript" src="DataBase.js"></script>
   <script type="text/javascript" src="E:/html/LPM/JPLUS.js"></script>
+  <script type="text/javascript" src="E:/html/LPM/Slider.pj.js"></script>
   <script src="Style.js"></script>
   <script type="text/javascript" src="Forms.js"></script>
   <script type="text/javascript" src="view.js"></script>
